@@ -32,10 +32,10 @@ function buildCharts(sample) {
 //**************************************************************************************************************
 
     var trace2 = {
-        mode: 'markers',
         x: data.otu_ids,
         y: data.sample_values,
         text: data.otu_labels,
+        mode: 'markers',
         marker: {color: data.otu_ids,size: data.sample_values}
     };
 
@@ -44,14 +44,14 @@ function buildCharts(sample) {
      var layout = {
           height: 600,
           width: 1200,
-          showlegend: false
+          showlegend: true,
+          hovermode: 'closest',
+          xaxis: {title: 'otu id'}
       };
 
      Plotly.newPlot('bubble', bubble, layout);
     });
 }
-
-
 
 function init() {
   // Grab a reference to the dropdown select element
